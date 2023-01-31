@@ -12,7 +12,7 @@ extension TiltContextExtension on BuildContext {
   bool get isDarkMode => mq.platformBrightness == Brightness.dark;
 
   /// Method to safely pop the current route
-  bool safePop({VoidCallback? onFailure}) {
+  bool mayBePop({VoidCallback? onFailure}) {
     // Check if the current route can be popped
     if (navigator.canPop()) {
       // Pop the current route

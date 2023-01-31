@@ -11,9 +11,9 @@ We are listing all the extensions here with some documentation :-
     // Check if dark mode is enabled
     context.isDarkMode
     // Safely pop the current route
-    context.safePop()
+    context.mayBePop()
     // If you want to do something when pop fails or nothing to pop
-    context.safePop(() => doSomething())
+    context.mayBePop(() => doSomething())
     // Access the Navigator associated with the current context
     context.navigator
     // Access the MediaQueryData associated with the current context
