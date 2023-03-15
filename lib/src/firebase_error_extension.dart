@@ -58,7 +58,7 @@ extension FirebaseErrorHandle on String {
       case 'wrong-password':
         return 'Incorrect password.';
       case 'invalid-verification-code':
-        return 'The credential verification code is not valid.';
+        return 'OTP entered is incorrect.';
       case 'invalid-verification-id':
         return 'The credential verification ID is not valid.';
       case 'custom-token-mismatch':
