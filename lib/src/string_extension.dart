@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
 /// Extension for string manipulation
 extension StringExtension on String {
   /// Capitalize the first letter of the string
@@ -40,4 +44,21 @@ extension StringExtension on String {
 
   /// Check if the string is empty or contains only whitespaces
   bool get isEmptyOrWhitespace => isEmpty || trim().isEmpty;
+}
+
+/// Extension for decoding JSON
+/// This extension method is used to decode a JSON string asynchronously
+/// using the compute method from the Flutter framework.
+/// The compute method is used to execute a function in a separate isolate.
+/// This is useful when the function is CPU intensive and will block the UI thread.
+/// The compute method is also useful when the function is not part of the main isolate.
+extension JsonDecodingExtension on String {
+  /// Decode the string as a JSON object
+  Future<dynamic> decodeJsonAsync() async {
+    return await compute<String, dynamic>(decodeJson, this);
+  }
+}
+
+dynamic decodeJson(String value) {
+  return json.decode(value);
 }
