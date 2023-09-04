@@ -179,6 +179,8 @@ extension FirebaseErrorHandle on String {
         return 'The credential used is not allowed to access the requested resource.';
       case 'internal-error':
         return 'The authentication server encountered an unexpected error while trying to process the request.';
+      case 'channel-error':
+        return 'Something went wrong while authentication. Please try again.';
       default:
         {
           return message ?? this;
