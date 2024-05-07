@@ -1,4 +1,36 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+abstract class ConsumerStateWidget extends ConsumerStatefulWidget {
+  const ConsumerStateWidget({super.key});
+
+  Widget build(BuildContext context, WidgetRef ref);
+  void initState(WidgetRef ref) {}
+  void dispose(WidgetRef ref) {}
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _ConsumerState createState() => _ConsumerState();
+}
+
+class _ConsumerState extends ConsumerState<ConsumerStateWidget> {
+  @override
+  void initState() {
+    super.initState();
+    widget.initState(ref);
+  }
+
+  @override
+  void dispose() {
+    widget.dispose(ref);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.build(context, ref);
+  }
+}
 
 /// Extension for NotifierProvider to provide setState method
 extension NotifierExtensionOnNotifier<A> on NotifierProvider<Notifier<A>, A> {
